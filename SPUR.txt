@@ -1,0 +1,41 @@
+ 
+Удаление:
+var nameSelect = DGrid.SelectedItems.Cast<Hotel>().ToList();
+NameBD.Hotels.RemoveRange(nameSelect);
+NameBD.SaveChanges();
+
+Вывод:
+ToursBase_IS310Entities toursBase_IS310Entities = new ToursBase_IS310Entities();
+            phonesGrid.ItemsSource = toursBase_IS310Entities.Hotel.ToList();
+
+Сохранить значение TEXTBOX в переменную:
+var my = textBox1.Text
+Изменение:
+TourBaseEntities.Hotels.Add(my);
+
+Разметка:
+<Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <DataGrid AutoGenerateColumns="False" x:Name="phonesGrid">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Title}" Header="Модель" Width="120"/>
+                <DataGridTextColumn Binding="{Binding Company}" Header="Производитель" Width="125"/>
+                <DataGridTextColumn Binding="{Binding Price}" Header="Цена" Width="80"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StackPanel HorizontalAlignment="Center"  Grid.Row="1" Orientation="Horizontal">
+            <Button x:Name="updateButton" Content="Обновить" Click="updateButton_Click" />
+            <Button x:Name="deleteButton" Content="Удалить" Click="deleteButton_Click" />
+        </StackPanel>
+    </Grid>
+
+Переход на другую активность
+private void Button_Click(object sender, RoutedEventArgs e)
+{
+    window2 win2 = new window2();
+    win2.Show();
+}
